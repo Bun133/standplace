@@ -5,9 +5,7 @@ api-version: 1.15
 authors: [ Bun133 ]
 description: The each players have own stand to replace under block to specific block
 website: https://twitter.com/bun133_
-command:
+commands:
   st:
     destcription: StandPlaceCommand
-    permission: op
-    permission-message: You don't have enough Perm!
     usase: /<command> <s/e>
