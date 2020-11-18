@@ -8,4 +8,7 @@ website: https://twitter.com/bun133_
 commands:
   st:
     destcription: StandPlaceCommand
-    usase: /<command> <s/e>
+    usase: /<command> <s/e/set> (<Player>)
+  sg:
+    description: Give Randomizer Item to Player or you
+    usage: /<command> <amount/player> (<amount>)
