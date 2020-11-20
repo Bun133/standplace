@@ -25,17 +25,20 @@ class GiveCommand : CommandExecutor {
             0 -> {
                 if (sender is Player) {
                     sender.inventory.addItem(RandomItemFactory.getItem(1))
+                    return true
                 }
             }
             1 -> {
                 if (args[0].toIntOrNull() != null) {
                     if (sender is Player) {
                         sender.inventory.addItem(RandomItemFactory.getItem(args[0].toInt()))
+                        return true
                     }
                 } else {
                     if (Bukkit.getOnlinePlayers().any { it.displayName === args[0] }) {
                         Bukkit.getOnlinePlayers().filter { it.displayName === args[0] }
                                 .forEach { it.inventory.addItem(RandomItemFactory.getItem(1)) }
+                        return true
                     }
                 }
             }
@@ -44,6 +47,7 @@ class GiveCommand : CommandExecutor {
                     if (Bukkit.getOnlinePlayers().any { it.displayName === args[0] }) {
                         Bukkit.getOnlinePlayers().filter { it.displayName === args[0] }
                                 .forEach { it.inventory.addItem(RandomItemFactory.getItem(args[1].toInt())) }
+                        return true
                     }
                 }
             }

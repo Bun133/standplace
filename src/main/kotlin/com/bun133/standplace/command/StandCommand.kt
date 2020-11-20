@@ -92,7 +92,7 @@ class StandCommand(var plugin: Standplace) : CommandExecutor {
         return plugin.random.factories[Random.nextInt(plugin.random.factories.size)].set(former)
     }
 
-    val proxy: RandomProxy = RandomProxy(plugin)
+    private val proxy: RandomProxy = RandomProxy(plugin)
     fun randomFactory(): RandomMaterialFactory {
         return proxy.get()
     }
