@@ -86,7 +86,7 @@ class RandomItemListener(var plugin: Standplace) : Listener {
 class RandomItemDistributor(var plugin: Standplace) : BukkitRunnable() {
     init {
         // Each Min
-        this.runTaskTimer(plugin, 20 * 60, 20 * 60)
+//        this.runTaskTimer(plugin, 20 * 60, 20 * 60)
     }
 
     override fun run() {
