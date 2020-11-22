@@ -64,18 +64,7 @@ class SimpleStateMaterialFactory(override val material: Material, val data: Bloc
  */
 class NormalBlocksFactoryFactory {
     fun getAll(): MutableList<RandomMaterialFactory> {
-        return mutableListOf(
-                SimpleMaterialFactory(Material.DIAMOND_BLOCK),
-                SimpleMaterialFactory(Material.GOLD_BLOCK),
-                SimpleMaterialFactory(Material.IRON_BLOCK),
-                SimpleMaterialFactory(Material.BEACON),
-                SimpleMaterialFactory(Material.OBSIDIAN),
-                SimpleMaterialFactory(Material.OAK_LOG),
-                SimpleMaterialFactory(Material.ACACIA_LOG),
-                SimpleMaterialFactory(Material.CHEST),
-                SimpleMaterialFactory(Material.CRAFTING_TABLE),
-                SimpleMaterialFactory(Material.END_PORTAL_FRAME)
-        )
+        return Material.values().filter { it.isBlock }.map { SimpleMaterialFactory(it) }.toMutableList()
     }
 }
 
@@ -95,14 +84,6 @@ class SpawnerFactory(val entity: EntityType, val plugin: Standplace) : RandomMat
 
 class SpawnersFactoryFactory() {
     fun getAll(plugin: Standplace): MutableList<RandomMaterialFactory> {
-        return mutableListOf(
-                SpawnerFactory(EntityType.CHICKEN, plugin),
-                SpawnerFactory(EntityType.BLAZE, plugin),
-                SpawnerFactory(EntityType.SPIDER, plugin),
-                SpawnerFactory(EntityType.ENDERMITE, plugin),
-                SpawnerFactory(EntityType.IRON_GOLEM, plugin),
-                SpawnerFactory(EntityType.PIG, plugin),
-                SpawnerFactory(EntityType.CREEPER, plugin)
-        )
+        return EntityType.values().filter { it.isSpawnable && it.isAlive }.map { SpawnerFactory(it, plugin) }.toMutableList()
     }
 }
